@@ -1,26 +1,26 @@
-import path from "path";
-import webpack from "webpack";
-import HTMLWebpackPlugin from "html-webpack-plugin";
+import path from 'path';
+import webpack from 'webpack';
+import HTMLWebpackPlugin from 'html-webpack-plugin';
 
 const PATH = {
-  src: path.resolve(__dirname, "../src"),
-  build: path.resolve(__dirname, "../build"),
-  public: path.resolve(__dirname, "../public"),
-  UI: path.resolve(__dirname, "../src/components/UI"),
+  src: path.resolve(__dirname, '../src'),
+  build: path.resolve(__dirname, '../build'),
+  public: path.resolve(__dirname, '../public'),
+  UI: path.resolve(__dirname, '../src/components/UI'),
 };
 
 const CONFIG: webpack.Configuration = {
-  mode: "development",
-  entry: PATH.src + "/index.tsx",
+  mode: 'development',
+  entry: PATH.src + '/index.tsx',
   output: {
     path: PATH.build,
-    filename: "[name].bundle.js",
+    filename: '[name].bundle.js',
   },
   resolve: {
-    extensions: ["*", ".js", ".json"],
+    extensions: ['*', '.ts', '.tsx', '.js', '.json'],
     alias: {
-      "@UI": PATH.UI,
-      "@": PATH.src,
+      '@UI': PATH.UI,
+      '@': PATH.src,
     },
   },
   devServer: {
@@ -30,7 +30,7 @@ const CONFIG: webpack.Configuration = {
   },
   plugins: [
     new HTMLWebpackPlugin({
-      template: PATH.public + "/index.html",
+      template: PATH.public + '/index.html',
       minify: {
         collapseWhitespace: true,
       },
@@ -40,20 +40,20 @@ const CONFIG: webpack.Configuration = {
     rules: [
       {
         test: /\.css$/,
-        use: ["style-loader", "css-loader"],
+        use: ['style-loader', 'css-loader'],
       },
       {
         test: /\.less$/,
-        use: ["style-loader", "css-loader", "less-loader"],
+        use: ['style-loader', 'css-loader', 'less-loader'],
       },
       {
         test: /\.svg$/,
-        use: ["file-loader"],
+        use: ['file-loader'],
       },
       {
         test: /\.(ts|tsx)$/,
         exclude: /node-modules/,
-        loader: "ts-loader",
+        loader: 'ts-loader',
       },
     ],
   },
