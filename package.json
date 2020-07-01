@@ -4,7 +4,7 @@
   "description": "shopping card on react-redux with typescript",
   "scripts": {
     "start": "webpack-dev-server --config ./config/webpack.config.dev.ts",
-    "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
+    "lint": "eslint **/*.{ts,js,jsx} --quiet --fix",
     "prettier": "prettier --write **/*.{ts,js,jsx,json,less,css,html}"
   },
   "repository": {
@@ -69,7 +69,7 @@
     }
   },
   "lint-staged": {
-    "*.{ts,tsx,less}": [
+    "*.{ts,tsx}": [
       "prettier --write",
       "eslint --fix",
       "git add"
