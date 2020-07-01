@@ -1,0 +1,29 @@
+.counter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &__button,
+  &__count {
+    height: 30px;
+  }
+
+  &__button {
+    cursor: pointer;
+    width: 25px;
+    border-radius: 4px;
+    border: 1px solid #e3e3e3;
+    outline: 0 none;
+    background:white;
+
+    &:hover,
+    &:active {
+      outline: 0 none;
+      border: 1px solid #4f95e8;
+    }
+  }
+
+  &__count {
+    width: 35px;
+  }
+}
