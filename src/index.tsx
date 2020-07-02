@@ -1,7 +1,15 @@
 import React from 'react';
+import { Provider } from 'react-redux';
 import { render } from 'react-dom';
 import 'normalize.css';
+
 import './assets/global.less';
 import App from './App';
+import { store } from './store';
 
-render(<App />, document.getElementById('root'));
+render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById('root'),
+);
