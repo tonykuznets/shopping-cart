@@ -1,3 +1,10 @@
-import { combineReducers } from 'redux';
+import { combineReducers, createStore } from 'redux';
+import { shoppingCardReducer } from './card/reducer';
 
-export const createRootReducer = () => combineReducers({});
+const rootReducer = combineReducers({
+  shoppingCardReducer,
+});
+
+export type RootState = ReturnType<typeof rootReducer>;
+
+export const store = createStore(rootReducer);

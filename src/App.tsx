@@ -1,19 +1,26 @@
 import React, { FC } from 'react';
+import { useSelector } from 'react-redux';
 import DeleteButton from '@UI/DeleteButton';
 import Counter from '@UI/Counter';
 import Button from '@UI/Button';
 import Typography from '@UI/Typography';
 import WrapItem from '@UI/WrapItem';
+import { shoppingCardReducer } from './store/card/reducer';
+import { RootState } from './store';
 
 interface Props {}
 
 const App: FC<Props> = (props) => {
+  const items = useSelector<RootState>((state) => state.shoppingCardReducer.items);
+
   const handleDelete = () => {
     console.log('1');
   };
   const handleCount = (count: number) => {
     console.log(count);
   };
+
+  console.log(props);
 
   return (
     <div>
