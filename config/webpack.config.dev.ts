@@ -20,7 +20,7 @@ const CONFIG: webpack.Configuration = {
     extensions: ['*', '.ts', '.tsx', '.js', '.json'],
     alias: {
       '@UI': PATH.UI,
-      '@': PATH.src,
+      '@src': PATH.src,
     },
   },
   devServer: {

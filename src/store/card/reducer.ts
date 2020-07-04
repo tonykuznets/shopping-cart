@@ -23,11 +23,12 @@ export const shoppingCardReducer = (state = initialState, action: ShoppingCardAc
       items = state.items.filter((item: IShoppingCartItem) => item.id !== action.payload.id);
       return { ...state, items };
     case CHANGE_COUNT: {
+      const { id, count } = action.payload;
       items = [...state.items];
 
       for (let i = 0; i < items.length; i++) {
-        if (+items[i].id === +action.payload.id) {
-          items[i] = { ...items[i], quantity: +items[i].quantity + action.payload.count };
+        if (+items[i].id === +id) {
+          items[i] = { ...items[i], quantity: +items[i].quantity + count };
         }
       }
 

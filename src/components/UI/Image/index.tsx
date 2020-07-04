@@ -1,12 +1,12 @@
 import React, { FC } from 'react';
 import './style.less';
 
-interface Props {
+interface IImageProps {
   alt: string;
   src?: string;
 }
 
-const Image: FC<Props> = ({ alt, src }) => (
+const Image: FC<IImageProps> = ({ alt, src }) => (
   <img alt={alt} src={src || 'https://via.placeholder.com/150/EFEFEF'} className={'card__item__image'} />
 );
 

@@ -2,12 +2,13 @@ import React, { FC } from 'react';
 import DeleteIcon from './DeleteIcon';
 import './style.less';
 
-interface Props {
-  onClick: () => void;
+interface IDeleteButtonProps {
+  id: number;
+  onClick: (id: number) => void;
 }
 
-const DeleteButton: FC<Props> = ({ onClick }) => (
-  <button type={'button'} className={'cart__button--delete'} onClick={onClick}>
+const DeleteButton: FC<IDeleteButtonProps> = ({ id, onClick }) => (
+  <button type={'button'} className={'cart__button--delete'} onClick={() => onClick(id)}>
     <DeleteIcon className={'cart__button--delete__icon'} />
   </button>
 );
