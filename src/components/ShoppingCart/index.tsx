@@ -1,9 +1,9 @@
-import React, { FC, useCallback, useEffect } from 'react';
+import React, { FC, useCallback, useEffect, memo } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { RootState } from '@src/store';
-import { changeCount, deleteItem, setSettings } from '@src/store/card/actions';
-import { IShoppingCartItem, ISettings } from '@src/store/card/types';
+import { changeCount, deleteItem, setSettings } from '@src/store/cart/actions';
+import { IShoppingCartItem, ISettings } from '@src/store/cart/types';
 import { getShoppingCartItems } from '@src/libs/selectors';
 import ErrorBoundary from '@src/components/ErrorBoundary';
 import AddItemForm from '@src/Forms/AddItemForm';
@@ -21,15 +21,23 @@ interface IShoppingCartProps {
 
 const ShoppingCart: FC<IShoppingCartProps> = ({ settings, handleSubmit }) => {
   const dispatch = useDispatch();
-  const items = useSelector<RootState, IShoppingCartItem[]>(getShoppingCartItems);
+  const items = useSelector<RootState, IShoppingCartItem[]>(
+    getShoppingCartItems,
+  );
 
   useEffect(() => {
     dispatch(setSettings(settings));
   }, []);
 
-  const handleChangeCount = useCallback((id: number, count: number) => dispatch(changeCount(id, count)), []);
+  const handleChangeCount = useCallback(
+    (id: number | string, count: number) => dispatch(changeCount(id, count)),
+    [],
+  );
 
-  const handleRemove = useCallback((id: number) => dispatch(deleteItem(id)), []);
+  const handleRemove = useCallback(
+    (id: number | string) => dispatch(deleteItem(id)),
+    [],
+  );
 
   return (
     <ErrorBoundary>
@@ -38,7 +46,12 @@ const ShoppingCart: FC<IShoppingCartProps> = ({ settings, handleSubmit }) => {
         {!items.length && <DataIsEmpty />}
         {!!items.length &&
           items.map((item: IShoppingCartItem) => (
-            <Item key={item.id} item={item} handleChangeCount={handleChangeCount} handleRemove={handleRemove} />
+            <Item
+              key={item.id}
+              item={item}
+              handleChangeCount={handleChangeCount}
+              handleRemove={handleRemove}
+            />
           ))}
         <AddItemForm />
         <TotalPrice />
@@ -52,4 +65,4 @@ const ShoppingCart: FC<IShoppingCartProps> = ({ settings, handleSubmit }) => {
   );
 };
 
-export default ShoppingCart;
+export default memo(ShoppingCart);

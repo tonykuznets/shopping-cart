@@ -1,9 +1,11 @@
-import React, { FC } from 'react';
+import React, { FC, memo } from 'react';
 
 import './style.less';
 
 interface IDataIsEmptyProps {}
 
-const DataIsEmpty: FC<IDataIsEmptyProps> = ({}) => <div className={'cart__isEmpty'}>Shopping Cart is Empty</div>;
+const DataIsEmpty: FC<IDataIsEmptyProps> = ({}) => (
+  <div className={'cart__isEmpty'}>Shopping Cart is Empty</div>
+);
 
-export default DataIsEmpty;
+export default memo(DataIsEmpty);

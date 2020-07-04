@@ -1,6 +1,6 @@
 import React, { FC, memo } from 'react';
 
-import { IShoppingCartItem } from '@src/store/card/types';
+import { IShoppingCartItem } from '@src/store/cart/types';
 import Counter from '@UI/Counter';
 import Price from '@UI/Price';
 import Image from '@UI/Image';
@@ -11,11 +11,15 @@ import './style.less';
 
 interface IShoppingCartItemProps {
   item: IShoppingCartItem;
-  handleChangeCount: (id: number, count: number) => void;
-  handleRemove: (id: number) => void;
+  handleChangeCount: (id: number | string, count: number) => void;
+  handleRemove: (id: number | string) => void;
 }
 
-const Item: FC<IShoppingCartItemProps> = ({ item, handleChangeCount, handleRemove }) => {
+const Item: FC<IShoppingCartItemProps> = ({
+  item,
+  handleChangeCount,
+  handleRemove,
+}) => {
   const { id, name, quantity, price } = item;
 
   return (

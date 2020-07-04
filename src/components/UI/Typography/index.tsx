@@ -3,7 +3,7 @@ import './style.less';
 
 interface ITypographyProps {
   type: string;
-  children: React.ReactNode | any;
+  children: any;
 }
 
 const types: any = {
@@ -21,7 +21,11 @@ const types: any = {
 };
 
 const Typography: FC<ITypographyProps> = ({ type, children }) => {
-  return React.createElement(types[type] || 'div', { className: type }, children);
+  return React.createElement(
+    types[type] || 'div',
+    { className: type },
+    children,
+  );
 };
 
 export default memo(Typography);

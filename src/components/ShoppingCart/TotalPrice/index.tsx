@@ -1,19 +1,29 @@
 import React, { FC, useMemo } from 'react';
 import { useSelector } from 'react-redux';
 
-import { IShoppingCartItem } from '@src/store/card/types';
+import { ISettings, IShoppingCartItem } from '@src/store/cart/types';
 import { formatCost } from '@src/libs/formatCost';
-import { getShoppingCartItems } from '@src/libs/selectors';
+import {
+  getShoppingCartItems,
+  getShoppingCartSettings,
+} from '@src/libs/selectors';
 import Typography from '@UI/Typography';
 
 import './style.less';
+import { RootState } from '@src/store';
 
 interface ITotalPriceProps {}
 
 const TotalPrice: FC<ITotalPriceProps> = ({}) => {
   const items = useSelector(getShoppingCartItems);
+  const settings = useSelector<RootState, ISettings>(getShoppingCartSettings);
   const total = useMemo(
-    () => items.reduce((acc: number, item: IShoppingCartItem) => (acc += +item.quantity * item.price), 0),
+    () =>
+      items.reduce(
+        (acc: number, item: IShoppingCartItem) =>
+          (acc += +item.quantity * item.price),
+        0,
+      ),
     [items],
   );
 
@@ -22,7 +32,7 @@ const TotalPrice: FC<ITotalPriceProps> = ({}) => {
       <Typography type={'totalCost'}>
         Total price:{' '}
         <span data-testid={'ShoppingCart_TotalPrice'} data-total={total}>
-          {formatCost(total)}
+          {formatCost(total)} {settings.postFixCost || ''}
         </span>
       </Typography>
     </section>

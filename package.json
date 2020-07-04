@@ -4,7 +4,8 @@
   "description": "shopping card on react-redux with typescript",
   "scripts": {
     "start": "webpack-dev-server --config ./config/webpack.config.dev.ts",
-    "test": "jest --watchAll"
+    "test": "jest --watchAll",
+    "prettier": "prettier --write **/*.{ts,tsx,js,jsx,json,less,css,html}"
   },
   "repository": {
     "type": "git",
