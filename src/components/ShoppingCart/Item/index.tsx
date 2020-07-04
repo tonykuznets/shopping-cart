@@ -1,6 +1,6 @@
 import React, { FC, memo } from 'react';
 
-import { IShoppingCartItem } from '@/store/card/types';
+import { IShoppingCartItem } from '@src/store/card/types';
 import Counter from '@UI/Counter';
 import Price from '@UI/Price';
 import Image from '@UI/Image';
@@ -15,7 +15,7 @@ interface IShoppingCartItemProps {
   handleRemove: (id: number) => void;
 }
 
-const ShoppingCartItem: FC<IShoppingCartItemProps> = ({ item, handleChangeCount, handleRemove }) => {
+const Item: FC<IShoppingCartItemProps> = ({ item, handleChangeCount, handleRemove }) => {
   const { id, name, quantity, price } = item;
 
   return (
@@ -33,4 +33,4 @@ const ShoppingCartItem: FC<IShoppingCartItemProps> = ({ item, handleChangeCount,
   );
 };
 
-export default memo(ShoppingCartItem);
+export default memo(Item);

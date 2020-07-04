@@ -5,7 +5,7 @@ import './style.less';
 interface IButtonProps {
   type: 'button' | 'submit' | 'reset' | undefined;
   onClick?: (props: any) => void | undefined;
-  children: React.ReactNode;
+  children: React.ReactNode | any;
 }
 
 const Button: FC<IButtonProps> = ({ type, onClick, children }) => (

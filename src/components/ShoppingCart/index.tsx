@@ -33,7 +33,7 @@ const ShoppingCart: FC<IShoppingCartProps> = ({ settings, handleSubmit }) => {
 
   return (
     <ErrorBoundary>
-      <main className={'cart'}>
+      <main className={'cart'} data-testid={'ShoppingCart'}>
         <Typography type={'h1'}>{settings.title}</Typography>
         {!items.length && <DataIsEmpty />}
         {!!items.length &&

@@ -19,7 +19,12 @@ const TotalPrice: FC<ITotalPriceProps> = ({}) => {
 
   return (
     <section className={'card__total'}>
-      <Typography type={'totalCost'}>Total price: {formatCost(total)}</Typography>
+      <Typography type={'totalCost'}>
+        Total price:{' '}
+        <span data-testid={'ShoppingCart_TotalPrice'} data-total={total}>
+          {formatCost(total)}
+        </span>
+      </Typography>
     </section>
   );
 };

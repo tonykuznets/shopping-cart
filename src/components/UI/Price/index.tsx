@@ -1,12 +1,17 @@
-import React, { FC } from 'react';
+import React, { FC, useMemo } from 'react';
 
 import Typography from '@UI/Typography';
-import { formatCost } from '@/libs/formatCost';
+import { formatCost } from '@src/libs/formatCost';
 
-interface ICostProps {
-  cost: number;
+interface IPriceProps {
+  price: number | string;
+  quantity: number | string;
 }
 
-const Cost: FC<ICostProps> = ({ cost }) => <Typography type={'cost'}>{formatCost(cost)}</Typography>;
+const Price: FC<IPriceProps> = ({ quantity, price }) => {
+  const cost = useMemo(() => +quantity * +price, [quantity, price]);
 
-export default Cost;
+  return <Typography type={'cost'}>{formatCost(cost)}</Typography>;
+};
+
+export default Price;
