@@ -1,39 +1,54 @@
-import React, { FC, useEffect } from 'react';
+import React, { FC, useCallback, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { getItems } from '../../libs/selectors';
-import { RootState } from '../../store';
-import { setSettings } from '../../store/card/actions';
-import { IShoppingCartItem, ISettings } from '../../store/card/types';
+import { RootState } from '@src/store';
+import { changeCount, deleteItem, setSettings } from '@src/store/card/actions';
+import { IShoppingCartItem, ISettings } from '@src/store/card/types';
+import { getShoppingCartItems } from '@src/libs/selectors';
+import ErrorBoundary from '@src/components/ErrorBoundary';
+import AddItemForm from '@src/Forms/AddItemForm';
 import DataIsEmpty from '@UI/DataIsEmpty';
 import Typography from '@UI/Typography';
-import ShoppingCartItem from '../ShoppingCartItem';
-import Total from '../Total';
-import SubmitForm from '../SubmitForm';
-import Recommended from '../Recommended';
+import Button from '@UI/Button';
+import Item from './Item';
+import TotalPrice from './TotalPrice';
 import './style.less';
 
 interface IShoppingCartProps {
   settings: ISettings;
+  handleSubmit: (props: any) => void;
 }
 
-const ShoppingCart: FC<IShoppingCartProps> = ({ settings }) => {
+const ShoppingCart: FC<IShoppingCartProps> = ({ settings, handleSubmit }) => {
   const dispatch = useDispatch();
-  const items = useSelector<RootState>(getItems);
+  const items = useSelector<RootState, IShoppingCartItem[]>(getShoppingCartItems);
 
   useEffect(() => {
     dispatch(setSettings(settings));
   }, []);
 
+  const handleChangeCount = useCallback((id: number, count: number) => dispatch(changeCount(id, count)), []);
+
+  const handleRemove = useCallback((id: number) => dispatch(deleteItem(id)), []);
+
   return (
-    <main className={'cart'}>
-      <Typography type={'h1'}>{settings.title}</Typography>
-      {!items.length && <DataIsEmpty />}
-      {!!items.length && items.map((item: IShoppingCartItem) => <ShoppingCartItem key={item.id} item={item} />)}
-      <Recommended />
-      <Total items={items} />
-      <SubmitForm />
-    </main>
+    <ErrorBoundary>
+      <main className={'cart'}>
+        <Typography type={'h1'}>{settings.title}</Typography>
+        {!items.length && <DataIsEmpty />}
+        {!!items.length &&
+          items.map((item: IShoppingCartItem) => (
+            <Item key={item.id} item={item} handleChangeCount={handleChangeCount} handleRemove={handleRemove} />
+          ))}
+        <AddItemForm />
+        <TotalPrice />
+        <section className={'card__total'}>
+          <Button type={'button'} onClick={() => handleSubmit(items)}>
+            Checkout
+          </Button>
+        </section>
+      </main>
+    </ErrorBoundary>
   );
 };
 

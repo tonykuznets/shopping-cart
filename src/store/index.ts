@@ -3,9 +3,9 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import { shoppingCardReducer } from './card/reducer';
 
 const rootReducer = combineReducers({
-  shoppingCardReducer,
+  shoppingCart: shoppingCardReducer,
 });
 
 export type RootState = ReturnType<typeof rootReducer>;
 
-export const store = createStore(rootReducer);
+export const store = createStore(rootReducer, composeWithDevTools());

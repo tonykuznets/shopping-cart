@@ -1,7 +1,7 @@
-import React, { FC } from 'react';
+import React, { FC, memo } from 'react';
 import './style.less';
 
-interface Props {
+interface ITypographyProps {
   type: string;
 }
 
@@ -19,8 +19,8 @@ const types: any = {
   totalCost: 'div',
 };
 
-const Typography: FC<Props> = ({ type, children }) => {
+const Typography: FC<ITypographyProps> = ({ type, children }) => {
   return React.createElement(types[type] || 'div', { className: type }, children);
 };
 
-export default Typography;
+export default memo(Typography);

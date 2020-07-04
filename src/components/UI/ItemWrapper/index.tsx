@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
 import './style.less';
 
-interface Props {}
+interface IItemWrapper {}
 
-const ItemWrapper: FC<Props> = ({ children }) => <article className={'card__item__wrapper'}>{children}</article>;
+const ItemWrapper: FC<IItemWrapper> = ({ children }) => <article className={'card__item__wrapper'}>{children}</article>;
 
 export default ItemWrapper;
