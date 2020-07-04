@@ -1,9 +1,9 @@
 import { combineReducers, createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import { shoppingCardReducer } from './card/reducer';
+import { shoppingCartReducer } from './cart/reducer';
 
 export const rootReducer = combineReducers({
-  shoppingCart: shoppingCardReducer,
+  shoppingCart: shoppingCartReducer,
 });
 
 export type RootState = ReturnType<typeof rootReducer>;

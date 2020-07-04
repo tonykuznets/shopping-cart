@@ -1,11 +1,17 @@
-import React, { FC } from 'react';
+import React, { FC, memo } from 'react';
 
 interface Props {
   className: string;
 }
 
 const DeleteIcon: FC<Props> = ({ className }) => (
-  <svg className={className} xmlns="http://www.w3.org/2000/svg" width="11.18" height="15" viewBox="0 0 11.18 15">
+  <svg
+    className={className}
+    xmlns="http://www.w3.org/2000/svg"
+    width="11.18"
+    height="15"
+    viewBox="0 0 11.18 15"
+  >
     <g id="rubbish-bin" transform="translate(-52.016)">
       <g id="Group_1995" data-name="Group 1995" transform="translate(52.016)">
         <path
@@ -27,5 +33,4 @@ const DeleteIcon: FC<Props> = ({ className }) => (
   </svg>
 );
 
-export default DeleteIcon;
-//background: #fbfbfc!important;
+export default memo(DeleteIcon);

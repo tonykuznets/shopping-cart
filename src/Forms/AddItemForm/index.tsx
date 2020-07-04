@@ -1,7 +1,7 @@
 import React, { FC, useState, memo } from 'react';
 
-import { IShoppingCartItem } from '@src/store/card/types';
-import { addItem } from '@src/store/card/actions';
+import { IShoppingCartItem } from '@src/store/cart/types';
+import { addItem } from '@src/store/cart/actions';
 import Input from '@UI/Input';
 import { useDispatch } from 'react-redux';
 import Typography from '@UI/Typography';
@@ -10,7 +10,12 @@ import './style.less';
 
 interface Props {}
 
-const initialValues: IShoppingCartItem = { id: new Date().getTime(), name: '', price: 0, quantity: 1 };
+const initialValues: IShoppingCartItem = {
+  id: new Date().getTime(),
+  name: '',
+  price: 0,
+  quantity: 1,
+};
 
 const AddItemForm: FC<Props> = ({}) => {
   const [values, setValues] = useState(initialValues);
@@ -66,21 +71,7 @@ const AddItemForm: FC<Props> = ({}) => {
             }}
           />
         </div>
-        <div>
-          <Input
-            type={'number'}
-            name={'quantity'}
-            tabIndex={2}
-            value={values['quantity']}
-            onChange={handleChange}
-            required={true}
-            params={{
-              // min: 0,
-              ['data-testid']: 'AddItemForm__quantity',
-            }}
-          />
-        </div>
-        <div>
+        <div className={'button__wrap'}>
           <Button type={'submit'}>+</Button>
         </div>
       </div>

@@ -1,14 +1,25 @@
-import { SET_SETTINGS, SET_ITEMS, ADD_ITEM, DELETE_ITEM, CHANGE_COUNT } from '../../libs/types';
-import { ShoppingCardState, ShoppingCardActionTypes, IShoppingCartItem, ISettings } from './types';
+import {
+  SET_SETTINGS,
+  SET_ITEMS,
+  ADD_ITEM,
+  DELETE_ITEM,
+  CHANGE_COUNT,
+} from '@src/libs/types';
+import {
+  ShoppingCartState,
+  ShoppingCartActionTypes,
+  IShoppingCartItem,
+} from './types';
 
-const initialState: ShoppingCardState = {
+const initialState: ShoppingCartState = {
   items: [],
-  recommendedItems: [],
   settings: { title: 'Shopping Cart', postFixCost: '$' },
-  totalCost: 0,
 };
 
-export const shoppingCardReducer = (state = initialState, action: ShoppingCardActionTypes): ShoppingCardState => {
+export const shoppingCartReducer = (
+  state = initialState,
+  action: ShoppingCartActionTypes,
+): ShoppingCartState => {
   let items = null;
 
   switch (action.type) {
@@ -20,7 +31,9 @@ export const shoppingCardReducer = (state = initialState, action: ShoppingCardAc
       items = [action.payload.item, ...state.items];
       return { ...state, items };
     case DELETE_ITEM:
-      items = state.items.filter((item: IShoppingCartItem) => item.id !== action.payload.id);
+      items = state.items.filter(
+        (item: IShoppingCartItem) => item.id !== action.payload.id,
+      );
       return { ...state, items };
     case CHANGE_COUNT: {
       const { id, count } = action.payload;

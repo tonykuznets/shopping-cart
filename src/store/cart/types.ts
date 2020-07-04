@@ -1,7 +1,13 @@
-import { ADD_ITEM, SET_ITEMS, CHANGE_COUNT, DELETE_ITEM, SET_SETTINGS } from '../../libs/types';
+import {
+  ADD_ITEM,
+  SET_ITEMS,
+  CHANGE_COUNT,
+  DELETE_ITEM,
+  SET_SETTINGS,
+} from '@src/libs/types';
 
 export interface IShoppingCartItem {
-  id: number;
+  id: number | string;
   name: string;
   price: number;
   quantity: number;
@@ -12,11 +18,9 @@ export interface ISettings {
   postFixCost: string;
 }
 
-export interface ShoppingCardState {
+export interface ShoppingCartState {
   items: IShoppingCartItem[];
-  recommendedItems: IShoppingCartItem[];
   settings: ISettings;
-  totalCost: number;
 }
 
 interface SetItemsAction {
@@ -43,19 +47,19 @@ interface AddItemAction {
 interface DeleteItemAction {
   type: typeof DELETE_ITEM;
   payload: {
-    id: number;
+    id: number | string;
   };
 }
 
 interface ChangeCountAction {
   type: typeof CHANGE_COUNT;
   payload: {
-    id: number;
+    id: number | string;
     count: number;
   };
 }
 
-export type ShoppingCardActionTypes =
+export type ShoppingCartActionTypes =
   | SetItemsAction
   | SetSettingsAction
   | AddItemAction

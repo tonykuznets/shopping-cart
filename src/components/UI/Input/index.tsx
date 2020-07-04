@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, memo } from 'react';
 
 import './style.less';
 
@@ -12,11 +12,19 @@ interface IInputProps {
   params?: any;
 }
 
-const Input: FC<IInputProps> = ({ type, name, value, required, tabIndex, onChange, params }) => (
+const Input: FC<IInputProps> = ({
+  type,
+  name,
+  value,
+  required,
+  tabIndex,
+  onChange,
+  params,
+}) => (
   <label htmlFor={name} className={'form___input'}>
-    <span className={'label'}>
+    <div className={'label'}>
       {name} {required && <span className={'required'}>*</span>}
-    </span>
+    </div>
     <input
       type={type}
       name={name}
@@ -32,4 +40,4 @@ const Input: FC<IInputProps> = ({ type, name, value, required, tabIndex, onChang
   </label>
 );
 
-export default Input;
+export default memo(Input);

@@ -7,7 +7,11 @@ import { rootReducer } from '../src/store';
 
 function render(
   ui: ReactElement,
-  { initialState: object = {}, store = createStore(rootReducer, {}), ...renderOptions } = {},
+  {
+    initialState: object = {},
+    store = createStore(rootReducer, {}),
+    ...renderOptions
+  } = {},
 ) {
   function Wrapper({ children }: { children: ReactNode }): ReactElement {
     return <Provider store={store}>{children}</Provider>;

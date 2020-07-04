@@ -1,5 +1,7 @@
 import React from 'react';
 
+import ErrorMessage from './ErrorMessage';
+
 interface HocProps {}
 
 interface HocState {}
@@ -18,7 +20,7 @@ class ErrorBoundary extends React.Component<HocProps, HocState> {
     const { error } = this.state;
 
     if (error) {
-      return <div>error</div>;
+      return <ErrorMessage />;
     }
 
     return children;

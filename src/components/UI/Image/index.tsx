@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, memo } from 'react';
 import './style.less';
 
 interface IImageProps {
@@ -7,7 +7,11 @@ interface IImageProps {
 }
 
 const Image: FC<IImageProps> = ({ alt, src }) => (
-  <img alt={alt} src={src || 'https://via.placeholder.com/150/EFEFEF'} className={'card__item__image'} />
+  <img
+    alt={alt}
+    src={src || 'https://via.placeholder.com/150/EFEFEF'}
+    className={'card__item__image'}
+  />
 );
 
-export default Image;
+export default memo(Image);
