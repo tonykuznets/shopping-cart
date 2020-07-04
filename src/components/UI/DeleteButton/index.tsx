@@ -7,8 +7,8 @@ interface Props {
 }
 
 const DeleteButton: FC<Props> = ({ onClick }) => (
-  <button type={'button'} className={'button__delete'} onClick={onClick}>
-    <DeleteIcon className={'button__delete--icon'} />
+  <button type={'button'} className={'cart__button--delete'} onClick={onClick}>
+    <DeleteIcon className={'cart__button--delete__icon'} />
   </button>
 );
 

@@ -2,62 +2,62 @@
   "items": [
     {
       "id": "1",
-      "name": "string",
-      "price": "100000",
+      "name": "Ray-Ban Aviator Gaze 6589",
+      "price": "38184",
       "quantity": "1"
     },
     {
       "id": "2",
-      "name": "string",
-      "price": "100000",
+      "name": "Ray-Ban 7151",
+      "price": "80909",
       "quantity": "1"
     },
     {
       "id": "3",
-      "name": "string",
-      "price": "100000",
+      "name": "Ray-Ban 5228",
+      "price": "32166",
       "quantity": "1"
     },
     {
       "id": "4",
-      "name": "string",
-      "price": "100000",
+      "name": "Ray-Ban 3548N Hexagonal",
+      "price": "10390",
       "quantity": "1"
     },
     {
       "id": "5",
-      "name": "string",
-      "price": "100000",
+      "name": "Ray-Ban 2132 New Wayfarer",
+      "price": "16822",
       "quantity": "1"
     },
     {
       "id": "6",
-      "name": "string",
-      "price": "100000",
+      "name": "Ray-Ban 3447V Round Metal",
+      "price": "32219",
       "quantity": "1"
     },
     {
       "id": "7",
-      "name": "string",
-      "price": "100000",
+      "name": "Ray-Ban 3016 Clubmaster",
+      "price": "71290",
       "quantity": "1"
     },
     {
       "id": "8",
-      "name": "string",
-      "price": "100000",
+      "name": "Ray-Ban 6335",
+      "price": "63396",
       "quantity": "1"
     },
     {
       "id": "9",
-      "name": "string",
-      "price": "100000",
+      "name": "Ray-Ban RB3498",
+      "price": "13230",
       "quantity": "1"
     },
     {
       "id": "10",
-      "name": "string",
-      "price": "100000",
+      "name": "Ray-Ban 4165 Justin",
+      "price": "13369",
       "quantity": "1"
     }
   ]
