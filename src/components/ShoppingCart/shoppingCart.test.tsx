@@ -1,9 +1,11 @@
 import React from 'react';
 import '@testing-library/jest-dom';
-import { render, fireEvent } from 'tests/test-utils';
+import { render } from 'tests/test-utils';
+import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom/extend-expect';
 import ShoppingCart from './index';
 import { settings } from '../../App';
+import { waitFor } from '@testing-library/react';
 
 describe('ShoppingCart', () => {
   it('Could render with redux init', async () => {
@@ -24,34 +26,13 @@ describe('ShoppingCart', () => {
     expect(getByTestId('AddItemForm__price')).toBeVisible();
     expect(getByTestId('AddItemForm__quantity')).toBeVisible();
 
-    fireEvent.change(getByTestId('AddItemForm__price'), {
-      target: { value: 10, valueAsNumber: 10, name: 'price' },
-    });
-    expect(getByTestId('AddItemForm__price')).toHaveValue(10);
+    userEvent.type(getByTestId('AddItemForm__price'), '10');
+    await waitFor(() => expect(getByTestId('AddItemForm__price')).toHaveValue(10));
 
-    fireEvent.change(getByTestId('AddItemForm__quantity'), {
-      target: { value: 1, valueAsNumber: 1, name: 'quantity' },
-    });
-    expect(getByTestId('AddItemForm__quantity')).toHaveValue(1);
+    userEvent.type(getByTestId('AddItemForm__quantity'), '2');
+    await waitFor(() => expect(getByTestId('AddItemForm__quantity')).toHaveValue(2));
 
-    fireEvent.change(getByTestId('AddItemForm__name'), {
-      target: { value: 'item name', name: 'name' },
-    });
-    expect(getByTestId('AddItemForm__name')).toHaveValue('item name');
+    userEvent.type(getByTestId('AddItemForm__name'), 'item name');
+    await waitFor(() => expect(getByTestId('AddItemForm__name')).toHaveValue('item name'));
   });
-
-  // it('Change counter', () => {
-  //   const { getByTestId } = render(
-  //     <ShoppingCart
-  //       settings={settings}
-  //       handleSubmit={() => {
-  //         return;
-  //       }}
-  //     />,
-  //   );
-  //
-  //   const counter = getByTestId('ShoppingCart_Counter');
-  //
-  //   expect(counter).toBeInTheDocument();
-  // });
 });
