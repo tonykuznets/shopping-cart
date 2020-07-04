@@ -3,6 +3,7 @@ import './style.less';
 
 interface ITypographyProps {
   type: string;
+  children: React.ReactNode | any;
 }
 
 const types: any = {

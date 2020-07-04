@@ -8,6 +8,8 @@ import { IShoppingCartItem } from './store/card/types';
 
 interface Props {}
 
+export const settings = { title: 'Shopping Cart', postFixCost: '$' };
+
 const App: FC<Props> = (props) => {
   const dispatch = useDispatch();
 
@@ -21,7 +23,7 @@ const App: FC<Props> = (props) => {
 
   return (
     <div>
-      <ShoppingCart settings={{ title: 'Shopping Cart', postFixCost: '$' }} handleSubmit={handleSubmit} />
+      <ShoppingCart settings={settings} handleSubmit={handleSubmit} />
     </div>
   );
 };

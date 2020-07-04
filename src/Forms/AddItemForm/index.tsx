@@ -36,7 +36,7 @@ const AddItemForm: FC<Props> = ({}) => {
   return (
     <form onSubmit={handleSubmit}>
       <Typography type={'h4'}>Add new item</Typography>
-      <div className={'cart cart__form'}>
+      <div className={'cart cart__form'} id={'ShoppingCart__AddItemForm'}>
         <div>
           <Input
             type={'text'}
@@ -45,6 +45,9 @@ const AddItemForm: FC<Props> = ({}) => {
             value={values['name']}
             onChange={handleChange}
             required={true}
+            params={{
+              ['data-testid']: 'AddItemForm__name',
+            }}
           />
         </div>
         <div>
@@ -56,7 +59,8 @@ const AddItemForm: FC<Props> = ({}) => {
             onChange={handleChange}
             required={true}
             params={{
-              min: 0,
+              // min: 0,
+              ['data-testid']: 'AddItemForm__price',
             }}
           />
         </div>
@@ -69,7 +73,8 @@ const AddItemForm: FC<Props> = ({}) => {
             onChange={handleChange}
             required={true}
             params={{
-              min: 0,
+              // min: 0,
+              ['data-testid']: 'AddItemForm__quantity',
             }}
           />
         </div>
