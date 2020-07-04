@@ -19,6 +19,8 @@ const AddItemForm: FC<Props> = ({}) => {
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     e.persist();
 
+    console.log('handleChange', e.target.name, e.target.value);
+
     setValues((values: IShoppingCartItem) => ({
       ...values,
       [e.target.name]: e.target.value,
