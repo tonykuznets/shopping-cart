@@ -6,7 +6,7 @@ interface Props {
 }
 
 const Button: FC<Props> = ({ onClick, children }) => (
-  <button type={'button'} className={'button__submit'} onClick={() => onClick()}>
+  <button type={'button'} className={'cart__button--submit'} onClick={() => onClick()}>
     {children}
   </button>
 );

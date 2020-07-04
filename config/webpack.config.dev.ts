@@ -47,8 +47,16 @@ const CONFIG: webpack.Configuration = {
         use: ['style-loader', 'css-loader', 'less-loader'],
       },
       {
-        test: /\.svg$/,
-        use: ['file-loader'],
+        test: /\.(woff(2)?|ttf|eot|svg|jpg|JPG|jpeg|png)(\?v=\d+\.\d+\.\d+)?$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'fonts/',
+            },
+          },
+        ],
       },
       {
         test: /\.(ts|tsx)$/,

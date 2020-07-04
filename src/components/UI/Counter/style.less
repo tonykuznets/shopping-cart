@@ -1,4 +1,4 @@
-.counter {
+.cart__counter {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -21,9 +21,21 @@
       outline: 0 none;
       border: 1px solid #4f95e8;
     }
+
+    &:disabled {
+      cursor: default;
+      background: #f3f3f3;
+      border: 1px solid #e3e3e3;
+
+      &:hover {
+        border: 1px solid #e3e3e3;
+      }
+    }
   }
 
   &__count {
     width: 35px;
+    text-align: center;
+    line-height: 30px;
   }
 }
