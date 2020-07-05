@@ -7,7 +7,11 @@ interface ITypographyProps {
   children: any;
 }
 
-const types: any = {
+interface ITypes {
+  [key: string]: string;
+}
+
+const types: ITypes = {
   h1: 'h1',
   h2: 'h2',
   h3: 'h3',

@@ -1,6 +1,7 @@
 import path from 'path';
 import webpack from 'webpack';
 import HTMLWebpackPlugin from 'html-webpack-plugin';
+import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 
 const PATH = {
   src: path.resolve(__dirname, '../src'),
@@ -29,6 +30,7 @@ const CONFIG: webpack.Configuration = {
     hot: true,
   },
   plugins: [
+    new BundleAnalyzerPlugin(),
     new HTMLWebpackPlugin({
       template: PATH.public + '/index.html',
       minify: {
@@ -40,11 +42,11 @@ const CONFIG: webpack.Configuration = {
     rules: [
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
+        use: ['style-loader', 'css-loader', 'postcss-loader'],
       },
       {
         test: /\.less$/,
-        use: ['style-loader', 'css-loader', 'less-loader'],
+        use: ['style-loader', 'css-loader', 'postcss-loader', 'less-loader'],
       },
       {
         test: /\.(woff(2)?|ttf|eot|svg|jpg|JPG|jpeg|png)(\?v=\d+\.\d+\.\d+)?$/,

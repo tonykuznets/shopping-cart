@@ -1,23 +1,23 @@
-.item__side {
+.shopping-cart__item-side {
   margin-left: auto;
   display: flex;
   align-items: center;
   justify-content: center;
 
-  &-left {
+  &--left {
     justify-content: flex-start;
     flex: 1;
   }
 
   @media screen and (max-width: 700px) {
-    &-right {
+    &--right {
       padding-top: 10px;
       flex: 1;
       justify-content: space-between;
     }
   }
 
-  &-right {
+  &--right {
     @media screen and (max-width: 700px) {
       .shopping-cart__button--delete {
         margin-left: 15px;
@@ -26,10 +26,15 @@
   }
 }
 
-.item__cost {
+.shopping-cart__item-side__cost {
   padding: 0 15px;
+  width: 160px;
+  text-align: right;
 
   @media screen and (max-width: 700px) {
-    order: -1;  padding: 0; flex: 1;
+    order: -1;
+    padding: 0;
+    flex: 1;
+    text-align: left;
   }
 }
