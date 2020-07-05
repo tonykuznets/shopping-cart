@@ -21,11 +21,11 @@ const Input: FC<IInputProps> = ({
   onChange,
   params,
 }) => (
-  <label htmlFor={name} className={'shopping-cart__field'}>
-    <div className={'shopping-cart__field__label'}>
+  <div className={'shopping-cart__field'}>
+    <label htmlFor={name} className={'shopping-cart__field__label'}>
       {name}{' '}
       {required && <span className={'shopping-cart__field__required'}>*</span>}
-    </div>
+    </label>
     <input
       type={type}
       name={name}
@@ -39,7 +39,7 @@ const Input: FC<IInputProps> = ({
       className={'shopping-cart__field__input'}
       {...params}
     />
-  </label>
+  </div>
 );
 
 export default memo(Input);
