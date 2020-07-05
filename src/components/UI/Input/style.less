@@ -22,6 +22,18 @@
     font-size: 16px;
     height: 38px;
 
+    &:invalid {
+      box-shadow: none;
+    }
+
+    &:-moz-submit-invalid {
+      box-shadow: none;
+    }
+
+    &:-moz-ui-invalid {
+      box-shadow:none;
+    }
+
     &:focus,
     &:hover {
       border-color: @border-color-hover;

@@ -27,13 +27,10 @@ const Item: FC<IShoppingCartItemProps> = ({
       <div className={'item__side item__side-left'}>
         <Image alt={name} src={''} />
         <Typography type={'title'}>{name}</Typography>
-        <div className={'item__cost--showphone'}>
-          <Price quantity={quantity} price={price} />
-        </div>
       </div>
       <div className={'item__side item__side-right'}>
         <Counter id={id} count={quantity} onClick={handleChangeCount} />
-        <div className={'item__cost--hidephone'}>
+        <div className={'item__cost'}>
           <Price quantity={quantity} price={price} />
         </div>
         <DeleteButton id={id} onClick={handleRemove} />
