@@ -64,6 +64,8 @@ const AddItemForm: FC<Props> = ({}) => {
             onChange={handleChange}
             required={true}
             params={{
+              min: 0,
+              max: 100000,
               ['data-testid']: 'AddItemForm__price',
             }}
           />
