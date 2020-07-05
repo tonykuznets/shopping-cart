@@ -60,7 +60,9 @@ describe('ShoppingCart', () => {
     );
 
     await waitFor(() =>
-      expect(getByTestId('ShoppingCartItem__price')).toContainHTML('20.0'),
+      expect(
+        container.querySelector('[data-testid="ShoppingCartItem__price"]'),
+      ).toContainHTML('20.0'),
     );
 
     //Click counter decrement
@@ -70,7 +72,9 @@ describe('ShoppingCart', () => {
     );
 
     await waitFor(() =>
-      expect(getByTestId('ShoppingCartItem__price')).toContainHTML('10.0'),
+      expect(
+        container.querySelector('[data-testid="ShoppingCartItem__price"]'),
+      ).toContainHTML('10.0'),
     );
 
     //If add item we have delete him from redux
