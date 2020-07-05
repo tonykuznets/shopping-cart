@@ -1,0 +1,18 @@
+@import 'src/assets/_variables';
+
+.shopping-cart__item-wrapper {
+  width: 100%;
+  padding: 16px 10px;
+  border-bottom: 1px solid @border-color;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  &:hover {
+    background: #fbfbfc;
+  }
+
+  @media screen and (max-width: 700px) {
+    display: block;
+  }
+}

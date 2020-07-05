@@ -1,0 +1,42 @@
+@import 'src/assets/_variables';
+
+.shopping-cart__field {
+  &__label {
+    text-transform: capitalize;
+    font-size: 16px;
+    color: @text-color;
+    display: block;
+    width: 100%;
+  }
+
+  &__required {
+    color: red;
+  }
+
+  &__input {
+    width: 100%;
+    border-radius: @border-radius;
+    border: solid 1px @border-color;
+    outline: 0 none;
+    padding: 0 10px;
+    font-size: 16px;
+    height: 38px;
+
+    &:invalid {
+      box-shadow: none;
+    }
+
+    &:-moz-submit-invalid {
+      box-shadow: none;
+    }
+
+    &:-moz-ui-invalid {
+      box-shadow:none;
+    }
+
+    &:focus,
+    &:hover {
+      border-color: @border-color-hover;
+    }
+  }
+}

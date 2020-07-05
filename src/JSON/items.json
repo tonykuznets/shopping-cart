@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "Ray-Ban Aviator Gaze 6589",
+    "price": 38184,
+    "quantity": 1
+  },
+  {
+    "id": 2,
+    "name": "Ray-Ban 7151",
+    "price": 80909,
+    "quantity": 1
+  },
+  {
+    "id": 3,
+    "name": "Ray-Ban 5228",
+    "price": 32166,
+    "quantity": 1
+  },
+  {
+    "id": 4,
+    "name": "Ray-Ban 3548N Hexagonal",
+    "price": 10390,
+    "quantity": 1
+  }
+]
