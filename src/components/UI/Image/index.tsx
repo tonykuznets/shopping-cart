@@ -10,6 +10,7 @@ interface IImageProps {
 const Image: FC<IImageProps> = ({ alt, src }) => (
   <img
     alt={alt}
+    title={alt}
     src={src || 'https://via.placeholder.com/150/EFEFEF'}
     className={'shopping-cart__image'}
   />
