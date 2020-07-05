@@ -1,7 +1,7 @@
 import React, { FC, memo } from 'react';
 
 interface Props {
-  className: string;
+  className?: string;
 }
 
 const DeleteIcon: FC<Props> = ({ className }) => (

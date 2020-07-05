@@ -24,11 +24,16 @@ const Item: FC<IShoppingCartItemProps> = ({
 
   return (
     <ItemWrapper>
-      <Image alt={name} src={''} />
-      <Typography type={'title'}>{name}</Typography>
-      <div className={'card__item__side'}>
+      <div className={'item__side item__side-left'}>
+        <Image alt={name} src={''} />
+        <Typography type={'title'}>{name}</Typography>
+        <div className={'item__cost--showphone'}>
+          <Price quantity={quantity} price={price} />
+        </div>
+      </div>
+      <div className={'item__side item__side-right'}>
         <Counter id={id} count={quantity} onClick={handleChangeCount} />
-        <div className={'card__item__side__cost'}>
+        <div className={'item__cost--hidephone'}>
           <Price quantity={quantity} price={price} />
         </div>
         <DeleteButton id={id} onClick={handleRemove} />

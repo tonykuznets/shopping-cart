@@ -1,9 +1,14 @@
-.button {
-  outline: 0 none;
+@import '@src/assets/_variables';
+
+.shopping-cart__button {
   padding: 10px 20px;
-  background-color: #62ce8f;
+  background-color: @button-green-color;
   color: #fff;
-  border-radius: 4px;
+  border-radius: @border-radius;
   border: 0 none;
   cursor: pointer;
+
+  &:disabled {
+    background-color: @button-disabled-color;
+  }
 }

@@ -10,7 +10,7 @@ interface Props {}
 
 export const settings = { title: 'Shopping Cart', postFixCost: '$' };
 
-const App: FC<Props> = (props) => {
+const App: FC<Props> = ({}) => {
   const dispatch = useDispatch();
 
   useEffect(() => {

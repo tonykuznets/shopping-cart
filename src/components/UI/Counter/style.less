@@ -1,4 +1,6 @@
-.cart__counter {
+@import '@src/assets/_variables';
+
+.shopping-cart__counter {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -11,24 +13,24 @@
   &__button {
     cursor: pointer;
     width: 25px;
-    border-radius: 4px;
-    border: 1px solid #e3e3e3;
+    border-radius: @border-radius;
+    border: 1px solid @border-color;
     outline: 0 none;
     background: white;
 
     &:hover,
     &:active {
       outline: 0 none;
-      border: 1px solid #4f95e8;
+      border: 1px solid @border-color-hover;
     }
 
     &:disabled {
       cursor: default;
-      background: #f3f3f3;
-      border: 1px solid #e3e3e3;
+      background: @button-disabled-color;
+      border: 1px solid @border-color;
 
       &:hover {
-        border: 1px solid #e3e3e3;
+        border: 1px solid @border-color;
       }
     }
   }

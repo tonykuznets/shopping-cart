@@ -41,7 +41,7 @@ const ShoppingCart: FC<IShoppingCartProps> = ({ settings, handleSubmit }) => {
 
   return (
     <ErrorBoundary>
-      <main className={'cart'} data-testid={'ShoppingCart'}>
+      <main className={'shopping-cart'} data-testid={'ShoppingCart'}>
         <Typography type={'h1'}>{settings.title}</Typography>
         {!items.length && <DataIsEmpty />}
         {!!items.length &&
@@ -55,7 +55,7 @@ const ShoppingCart: FC<IShoppingCartProps> = ({ settings, handleSubmit }) => {
           ))}
         <AddItemForm />
         <TotalPrice />
-        <section className={'card__total'}>
+        <section className={'shopping-cart__submit'}>
           <Button type={'button'} onClick={() => handleSubmit(items)}>
             Checkout
           </Button>
