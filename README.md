@@ -1,4 +1,4 @@
-# shopping-cart
-Shopping cart on react-redux with typescript
+# Shopping Cart
+Simple shopping card on react-redux with typescript, <a href="https://tonykuznetsov.github.io/shopping-cart/">see on github pages</a>
 
-<h1 align="center">Shopping-cart</h1>
+Simple shopping card on
