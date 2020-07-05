@@ -1,9 +1,15 @@
 # Shopping Cart
+<<<<<<< HEAD
 
 Simple shopping card on react-redux with typescript, <a href="https://tonykuznetsov.github.io/shopping-cart/">see on github pages</a>
 
 ## Installation
 
+=======
+Simple shopping card on react-redux with typescript, <a href="https://tonykuznetsov.github.io/shopping-cart/">see on github pages</a>
+
+## Installation
+>>>>>>> master
 - Clone this repo
 - `npm install` to install all dependencies
 - `npm run start` to start the local server
