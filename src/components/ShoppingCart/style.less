@@ -1,4 +1,25 @@
-.cart {
-  width: 600px;
+.shopping-cart {
   margin: 0 auto;
+
+  @media screen and (max-width: 1024px) {
+    width: 100%;
+    padding: 20px;
+  }
+
+  @media screen and (min-width: 1024px) {
+    width: 600px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 800px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: 1000px;
+  }
+
+  &__submit {
+    padding: 20px 0 10px;
+    text-align: right;
+  }
 }

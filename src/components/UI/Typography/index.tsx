@@ -1,4 +1,5 @@
 import React, { FC, memo } from 'react';
+
 import './style.less';
 
 interface ITypographyProps {
@@ -23,7 +24,7 @@ const types: any = {
 const Typography: FC<ITypographyProps> = ({ type, children }) => {
   return React.createElement(
     types[type] || 'div',
-    { className: type },
+    { className: 'shopping-cart__' + type },
     children,
   );
 };

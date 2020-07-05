@@ -1,13 +1,45 @@
-.item {
-}
-
-.card__item__side {
+.item__side {
   margin-left: auto;
   display: flex;
   align-items: center;
   justify-content: center;
 
-  &__cost {
-    padding: 0 15px;
+  &-left {
+    justify-content: flex-start;
+    flex: 1;
+  }
+
+  @media screen and (max-width: 700px) {
+    &-right {
+      padding-top: 10px;
+      flex: 1;
+      justify-content: space-between;
+    }
+  }
+
+  &-right {
+    .shopping-cart__cost {
+      padding: 0 15px;
+
+      @media screen and (max-width: 700px) {
+        display: none;
+      }
+    }
+  }
+}
+
+.item__cost--showphone {
+  display: none;
+  @media screen and (max-width: 700px) {
+    text-align: right;
+    flex: 1;
+    display: block;
+  }
+}
+
+.item__cost--hide {
+  display: block;
+  @media screen and (max-width: 700px) {
+    display: none;
   }
 }

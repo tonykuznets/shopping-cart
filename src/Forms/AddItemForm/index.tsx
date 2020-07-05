@@ -1,4 +1,4 @@
-import React, { FC, useState, memo } from 'react';
+import React, { FC, useState, memo, useMemo } from 'react';
 
 import { IShoppingCartItem } from '@src/store/cart/types';
 import { addItem } from '@src/store/cart/actions';
@@ -24,12 +24,10 @@ const AddItemForm: FC<Props> = ({}) => {
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     e.persist();
 
-    console.log('handleChange', e.target.name, e.target.value);
-
-    setValues((values: IShoppingCartItem) => ({
+    setValues({
       ...values,
       [e.target.name]: e.target.value,
-    }));
+    });
   }
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -43,7 +41,7 @@ const AddItemForm: FC<Props> = ({}) => {
   return (
     <form onSubmit={handleSubmit}>
       <Typography type={'h4'}>Add new item</Typography>
-      <div className={'cart cart__form'} id={'ShoppingCart__AddItemForm'}>
+      <div className={'shopping-cart__form'} id={'ShoppingCart__AddItemForm'}>
         <div>
           <Input
             type={'text'}
@@ -66,13 +64,19 @@ const AddItemForm: FC<Props> = ({}) => {
             onChange={handleChange}
             required={true}
             params={{
-              // min: 0,
               ['data-testid']: 'AddItemForm__price',
             }}
           />
         </div>
-        <div className={'button__wrap'}>
-          <Button type={'submit'}>+</Button>
+        <div className={'shopping-cart__form__button-wrap'}>
+          <Button
+            type={'submit'}
+            params={{
+              ['data-testid']: 'AddItemForm__button',
+            }}
+          >
+            +
+          </Button>
         </div>
       </div>
     </form>

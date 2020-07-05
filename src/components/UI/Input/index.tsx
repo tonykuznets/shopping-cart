@@ -21,20 +21,22 @@ const Input: FC<IInputProps> = ({
   onChange,
   params,
 }) => (
-  <label htmlFor={name} className={'form___input'}>
-    <div className={'label'}>
-      {name} {required && <span className={'required'}>*</span>}
+  <label htmlFor={name} className={'shopping-cart__field'}>
+    <div className={'shopping-cart__field__label'}>
+      {name}{' '}
+      {required && <span className={'shopping-cart__field__required'}>*</span>}
     </div>
     <input
       type={type}
       name={name}
-      placeholder={name}
-      value={value}
+      placeholder={'Enter the ' + name}
+      value={value || ''}
       onChange={onChange}
       required={required}
       tabIndex={tabIndex}
       autoComplete={'off'}
       autoCorrect={'off'}
+      className={'shopping-cart__field__input'}
       {...params}
     />
   </label>

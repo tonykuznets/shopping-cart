@@ -9,21 +9,31 @@ interface ICounterProps {
 }
 
 const Counter: FC<ICounterProps> = ({ id, count, onClick }) => (
-  <div className={'cart__counter'} data-testid={'ShoppingCart_Counter'}>
+  <div
+    className={'shopping-cart__counter'}
+    data-testid={'ShoppingCartItem_Counter'}
+  >
     <button
       type={'button'}
       disabled={count <= 1}
-      className={'cart__counter__button'}
+      className={'shopping-cart__counter__button'}
       onClick={() => onClick(id, -1)}
+      data-testid={'ShoppingCartItem_Counter_dec'}
     >
       -
     </button>
-    <div className={'cart__counter__count'}>{count}</div>
+    <div
+      className={'shopping-cart__counter__count'}
+      data-testid={'ShoppingCartItem_Counter_result'}
+    >
+      {count}
+    </div>
     <button
       type={'button'}
       disabled={count >= 100}
-      className={'cart__counter__button'}
+      className={'shopping-cart__counter__button'}
       onClick={() => onClick(id, +1)}
+      data-testid={'ShoppingCartItem_Counter_inc'}
     >
       +
     </button>

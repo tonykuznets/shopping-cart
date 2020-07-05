@@ -18,7 +18,8 @@ const Price: FC<IPriceProps> = ({ quantity, price }) => {
 
   return (
     <Typography type={'cost'}>
-      {formatCost(cost)} {settings.postFixCost || ''}
+      <span data-testid={'ShoppingCartItem__price'}>{formatCost(cost)}</span>{' '}
+      {settings.postFixCost || ''}
     </Typography>
   );
 };

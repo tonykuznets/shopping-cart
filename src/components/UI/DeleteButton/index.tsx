@@ -1,4 +1,5 @@
 import React, { FC, memo } from 'react';
+
 import DeleteIcon from './DeleteIcon';
 import './style.less';
 
@@ -10,10 +11,11 @@ interface IDeleteButtonProps {
 const DeleteButton: FC<IDeleteButtonProps> = ({ id, onClick }) => (
   <button
     type={'button'}
-    className={'cart__button--delete'}
+    className={'shopping-cart__button--delete'}
     onClick={() => onClick(id)}
+    data-testid={'AddItemForm__button_delete'}
   >
-    <DeleteIcon className={'cart__button--delete__icon'} />
+    <DeleteIcon />
   </button>
 );
 
