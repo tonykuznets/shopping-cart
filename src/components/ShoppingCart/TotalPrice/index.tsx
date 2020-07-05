@@ -1,31 +1,20 @@
 import React, { FC, useMemo } from 'react';
 import { useSelector } from 'react-redux';
 
-import { ISettings, IShoppingCartItem } from '@src/store/cart/types';
+import { ISettings } from '@src/store/cart/types';
 import { formatCost } from '@src/libs/formatCost';
-import {
-  getShoppingCartItems,
-  getShoppingCartSettings,
-} from '@src/libs/selectors';
+import { getShoppingCartSettings } from '@src/libs/selectors';
 import Typography from '@UI/Typography';
 
 import './style.less';
 import { RootState } from '@src/store';
 
-interface ITotalPriceProps {}
+interface ITotalPriceProps {
+  total: number;
+}
 
-const TotalPrice: FC<ITotalPriceProps> = ({}) => {
-  const items = useSelector(getShoppingCartItems);
+const TotalPrice: FC<ITotalPriceProps> = ({ total }) => {
   const settings = useSelector<RootState, ISettings>(getShoppingCartSettings);
-  const total = useMemo(
-    () =>
-      items.reduce(
-        (acc: number, item: IShoppingCartItem) =>
-          (acc += +item.quantity * item.price),
-        0,
-      ),
-    [items],
-  );
 
   return (
     <section className={'shoppin-cart__total'}>

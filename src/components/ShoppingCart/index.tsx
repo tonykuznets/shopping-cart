@@ -1,10 +1,11 @@
-import React, { FC, useCallback, useEffect, memo } from 'react';
+import React, { FC, useCallback, useEffect, memo, useMemo } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { RootState } from '@src/store';
 import { changeCount, deleteItem, setSettings } from '@src/store/cart/actions';
 import { IShoppingCartItem, ISettings } from '@src/store/cart/types';
 import { getShoppingCartItems } from '@src/libs/selectors';
+import { getAccItemsParams } from '@src/libs/methods';
 import ErrorBoundary from '@src/components/ErrorBoundary';
 import AddItemForm from '@src/Forms/AddItemForm';
 import DataIsEmpty from '@UI/DataIsEmpty';
@@ -24,6 +25,7 @@ const ShoppingCart: FC<IShoppingCartProps> = ({ settings, handleSubmit }) => {
   const items = useSelector<RootState, IShoppingCartItem[]>(
     getShoppingCartItems,
   );
+  const params = useMemo(() => getAccItemsParams(items), [items]);
 
   useEffect(() => {
     dispatch(setSettings(settings));
@@ -42,7 +44,12 @@ const ShoppingCart: FC<IShoppingCartProps> = ({ settings, handleSubmit }) => {
   return (
     <ErrorBoundary>
       <main className={'shopping-cart'} data-testid={'ShoppingCart'}>
-        <Typography type={'h1'}>{settings.title}</Typography>
+        <Typography type={'h1'}>
+          {settings.title}&nbsp;
+          <span className={'shopping-cart__quantities'}>
+            {params.quantities} item(s) in the cart
+          </span>
+        </Typography>
         {!items.length && <DataIsEmpty />}
         {!!items.length &&
           items.map((item: IShoppingCartItem) => (
@@ -54,7 +61,7 @@ const ShoppingCart: FC<IShoppingCartProps> = ({ settings, handleSubmit }) => {
             />
           ))}
         <AddItemForm />
-        <TotalPrice />
+        <TotalPrice total={params.total} />
         <section className={'shopping-cart__submit'}>
           <Button type={'button'} onClick={() => handleSubmit(items)}>
             Checkout

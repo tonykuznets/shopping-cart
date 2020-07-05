@@ -77,7 +77,10 @@ const AddItemForm: FC<Props> = ({}) => {
               ['data-testid']: 'AddItemForm__button',
             }}
           >
-            +
+            +{' '}
+            <span className={'shopping-cart__form__button-wrap_text'}>
+              Add item
+            </span>
           </Button>
         </div>
       </div>

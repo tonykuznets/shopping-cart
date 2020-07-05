@@ -37,14 +37,9 @@ export const shoppingCartReducer = (
       return { ...state, items };
     case CHANGE_COUNT: {
       const { id, count } = action.payload;
-      items = [...state.items];
-
-      for (let i = 0; i < items.length; i++) {
-        if (+items[i].id === +id) {
-          items[i] = { ...items[i], quantity: +items[i].quantity + count };
-        }
-      }
-
+      items = state.items.map((item: IShoppingCartItem) =>
+        +item.id === id ? { ...item, quantity: +item.quantity + count } : item,
+      );
       return { ...state, items };
     }
     default:

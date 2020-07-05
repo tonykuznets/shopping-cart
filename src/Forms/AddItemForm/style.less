@@ -2,9 +2,18 @@
   display: flex;
   align-items: center;
 
+  @media screen and (max-width: 480px) {
+    display: block;
+  }
+
   div {
     flex: 1;
     padding-right: 5px;
+
+    @media screen and (max-width: 480px) {
+      padding-right: 0;
+      margin-bottom: 15px;
+    }
 
     &:last-child {
       padding-right: 0;
@@ -14,7 +23,23 @@
 
   &__button-wrap {
     padding-top: 18px;
+
+    &_text {
+      display: none;
+    }
+
+    @media screen and (max-width: 480px) {
+      padding-top: 0;
+      padding-right: 0;
+      margin-bottom: 10px;
+
+      button {
+        width: 100%;
+      }
+
+      &_text {
+        display: inline;
+      }
+    }
   }
 }
-
-
