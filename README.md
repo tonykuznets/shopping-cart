@@ -4,7 +4,8 @@ Simple shopping card on react-redux with typescript, <a href="https://tonykuznet
 ## Installation
 - Clone this repo
 - `npm install` to install all dependencies
-- `npm start` to start the local server
+- `npm run start` to start the local server
+- `npm run test` to start the tests
 
 ## Usage
 
